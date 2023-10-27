@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Troubleshooting.Models.Error>
+
+@{
+    ViewData["Title"] = "System zgłaszania błędów";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Zgłoś nowy błąd</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ErrorCode)
+            </th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(itemId => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(itemCode => item.ErrorCode)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
+                    @Html.ActionLink("Details", "Details", new {id = item.Id}) |
+                    @Html.ActionLink("Delete", "Delete", new {id = item.Id}) |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
